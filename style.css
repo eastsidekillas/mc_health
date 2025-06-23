@@ -1,0 +1,13 @@
+:root {
+  --color-green-primary: #258E64;
+  --color-green-accent: #79C253;
+  --color-green-dark: #1f5f00;
+  --color-green-light: #a4d35c;
+  --color-background-light: #f4f9f4;
+  --color-text-dark: #333333;
+  --color-text-light: #ffffff;
+  --color-text-muted: #c0c0c0;
+  --color-yellow-main: #fbbf24;
+  --color-yellow-hover: #f59e0b;
+  --font-sans: "Golos Text", sans-serif;
+}

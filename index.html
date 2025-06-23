@@ -1,0 +1,354 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Медицинская клиника - Здоровье и забота о вас</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400..900&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: '#A5AF2C',
+              secondary: '#4FC6FF',
+              accent: '#F6A878',
+              'primary-hover': '#8C9524',
+              'primary-active': '#E6E9C8'
+            },
+            fontFamily: {
+              'sans': ['Golos Text', 'sans-serif'],
+            }
+          }
+        }
+      }
+    </script>
+  </head>
+  <body class="bg-gray-50 font-sans">
+
+
+
+<!-- Основная шапка -->
+<header class="bg-[#F9F9F6] shadow-sm sticky top-0 z-40">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+    
+    <!-- Логотип и номер телефона -->
+    <div class="flex items-center gap-8">
+      <a href="/" class="flex items-center gap-3">
+        <img src="src/img/logo.png" alt="Логотип" class="h-10 w-10 object-contain hidden sm:block">
+        <span class="text-2xl font-semibold text-primary">МЦ Здоровье</span>
+      </a>
+      
+      <!-- Номер телефона -->
+      <div class="hidden md:flex items-center gap-3">
+        <i class="fas fa-phone text-primary text-xl"></i>
+        <div>
+          <div class="text-xs text-gray-500">Запись по телефону</div>
+          <div class="text-lg font-medium text-gray-800">+7 (999) 123-45-67</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Кнопки справа -->
+    <div class="flex items-center gap-4">
+      <div class="hidden md:flex gap-2">
+        <a href="/online/" class="text-sm px-4 py-2 bg-primary text-white rounded-lg hover:bg-[#8C9524] transition shadow">Записаться к врачу</a>
+        <a href="/login/" class="text-sm px-4 py-2 border border-primary text-primary rounded-lg hover:bg-[#E6E9C8] transition">Личный кабинет</a>
+      </div>
+
+      <!-- Бургер-меню -->
+      <button class="lg:hidden flex items-center justify-center w-10 h-10 rounded hover:bg-gray-100" id="mobile-menu-btn">
+        <i class="fas fa-bars text-xl text-gray-700"></i>
+      </button>
+    </div>
+  </div>
+
+  <!-- Нижняя панель меню -->
+  <nav class="bg-white border-t border-gray-200 hidden lg:flex py-4 text-sm">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-40 flex gap-10">
+      <a href="/news/" class="text-[#2D2D2D] hover:text-accent transition">Главная</a>
+      <a href="/about/info/" class="text-[#2D2D2D] hover:text-accent transition">О клинике</a>
+      <a href="/blog/" class="text-[#2D2D2D] hover:text-accent transition">Блог</a>
+      <a href="/services/" class="text-[#2D2D2D] hover:text-accent transition">Услуги</a>
+      <a href="/contacts/" class="text-[#2D2D2D] hover:text-accent transition">Контакты</a>
+    </div>
+  </nav>
+</header>
+
+    
+
+    <!-- Мобильное меню -->
+    <div class="lg:hidden fixed inset-0 bg-black bg-opacity-50 z-50" x-data="{ open: false }" x-show="open" @toggle-mobile-menu.window="open = !open">
+      <div class="bg-white h-full w-80 max-w-full overflow-y-auto">
+        <div class="p-4 border-b border-primary">
+          <div class="flex justify-between items-center">
+            <h3 class="text-lg font-bold text-primary">Меню</h3>
+            <button @click="open = false" class="text-gray-500 hover:text-gray-700">
+              <i class="fas fa-times text-xl"></i>
+            </button>
+          </div>
+        </div>
+        
+        <div class="p-4">
+          <div class="space-y-4">
+            <a href="/news/" class="block py-2 text-gray-700 hover:text-secondary font-semibold">Новости и акции</a>
+            <a href="/prices/" class="block py-2 text-gray-700 hover:text-secondary font-semibold">Цены</a>
+            <a href="/about/info/" class="block py-2 text-gray-700 hover:text-secondary font-semibold">О клинике</a>
+            <a href="/doctors/" class="block py-2 text-gray-700 hover:text-secondary font-semibold">Врачи</a>
+            <a href="/contacts/" class="block py-2 text-gray-700 hover:text-secondary font-semibold">Контакты</a>
+          </div>
+          
+          <div class="mt-6 pt-6 border-t">
+            <a href="/online/" class="block w-full bg-primary text-white text-center py-3 rounded-lg hover:bg-primary-hover font-semibold">
+              Online запись
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Основной контент -->
+    <main>
+      <!-- Новый блок с услугами -->
+      <section class="py-8 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            
+            <!-- Левая карточка -->
+            <div class="lg:col-span-1 bg-primary rounded-2xl p-8 flex flex-col justify-between shadow-lg text-white">
+              <div class="flex flex-col items-center text-center">
+                <div class="flex items-center justify-center mb-6">
+                  <img src="src/img/medical.png" alt="Семья" class="w-36 h-36 object-contain">
+                </div>
+                <h3 class="text-3xl font-bold">Для взрослых и детей</h3>
+              </div>
+              <a href="#" class="mt-8 w-full bg-white text-primary font-semibold px-6 py-3 rounded-lg text-center hover:bg-gray-100 transition flex items-center justify-center">
+                Найти врача <i class="fas fa-arrow-right ml-2"></i>
+              </a>
+            </div>
+            
+            <!-- Правые кнопки -->
+            <div class="lg:col-span-2">
+              <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                <a href="#" class="group block bg-primary-active p-5 rounded-2xl hover:shadow-md transition-shadow">
+                  <div class="flex justify-between items-center h-full">
+                    <span class="font-semibold text-gray-700">Консультация врача</span>
+                    <i class="fas fa-chevron-right text-gray-300 group-hover:text-primary transition-colors"></i>
+                  </div>
+                </a>
+                <a href="#" class="group block bg-accent/20 p-5 rounded-2xl hover:shadow-md transition-shadow">
+                  <div class="flex justify-between items-center h-full">
+                    <span class="font-semibold text-gray-700">Медицинские анализы</span>
+                    <i class="fas fa-chevron-right text-gray-300 group-hover:text-primary transition-colors"></i>
+                  </div>
+                </a>
+                <a href="#" class="group block bg-secondary/20 p-5 rounded-2xl hover:shadow-md transition-shadow">
+                   <div class="flex justify-between items-center h-full">
+                    <span class="font-semibold text-gray-700">Ультразвуковая диагностика</span>
+                    <i class="fas fa-chevron-right text-gray-300 group-hover:text-primary transition-colors"></i>
+                  </div>
+                </a>
+                <a href="#" class="group block bg-primary-active p-5 rounded-2xl hover:shadow-md transition-shadow">
+                   <div class="flex justify-between items-center h-full">
+                    <span class="font-semibold text-gray-700">Стоимость услуг</span>
+                    <i class="fas fa-chevron-right text-gray-300 group-hover:text-primary transition-colors"></i>
+                  </div>
+                </a>
+                <a href="#" class="group block bg-secondary/20 p-5 rounded-2xl hover:shadow-md transition-shadow">
+                   <div class="flex justify-between items-center h-full">
+                    <span class="font-semibold text-gray-700">Медицинские услуги</span>
+                    <i class="fas fa-chevron-right text-gray-300 group-hover:text-primary transition-colors"></i>
+                  </div>
+                </a>
+                <a href="#" class="group block bg-accent/20 p-5 rounded-2xl hover:shadow-md transition-shadow">
+                   <div class="flex justify-between items-center h-full">
+                    <span class="font-semibold text-gray-700">Расписание работы</span>
+                    <i class="fas fa-chevron-right text-gray-300 group-hover:text-primary transition-colors"></i>
+                  </div>
+                </a>
+
+              </div>
+              
+              <!-- Нижняя плашка -->
+              <div class="mt-10 bg-primary-active/70 p-4 rounded-2xl flex items-center gap-4 border border-primary/20">
+                <div class="text-primary">
+                   <i class="fas fa-award text-2xl"></i>
+                </div>
+                <p class="text-sm text-gray-700 font-medium">
+                   Здесь можно добавить рекламный текст (например, входим в топ 5 частных клиник)
+                </p>
+              </div>
+
+                            <!-- Нижняя плашка -->
+              <div class="mt-10 bg-primary-active/70 p-4 rounded-2xl flex items-center gap-4 border border-primary/20">
+                <div class="text-primary">
+                   <i class="fas fa-award text-2xl"></i>
+                </div>
+                <p class="text-sm text-gray-700 font-medium">
+                   Здесь можно добавить дополнительную информацию
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Блок "Что Вас интересует?" -->
+      <section class="py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 class="text-3xl font-bold text-gray-800 mb-12">Что Вас интересует?</h2>
+          
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+            
+            <!-- Левая колонка с карточками -->
+            <div class="grid grid-cols-2 gap-6">
+              
+              <!-- Карточка "Специалисты" -->
+              <a href="#" class="col-span-2 bg-white rounded-2xl p-6 relative h-40 group shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden flex flex-col justify-between">
+                <div>
+                  <h3 class="text-xl font-semibold text-gray-800">Специалисты</h3>
+                </div>
+                <div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white group-hover:bg-primary-hover transition-colors">
+                  <i class="fas fa-chevron-right"></i>
+                </div>
+              </a>
+
+              <!-- Карточка "Диагностика" -->
+              <a href="#" class="bg-white rounded-2xl p-6 group shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col justify-between h-40">
+                <div>
+                  <h3 class="text-xl font-semibold text-gray-800">Диагностика</h3>
+                </div>
+                <div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white group-hover:bg-primary-hover transition-colors">
+                  <i class="fas fa-chevron-right"></i>
+                </div>
+              </a>
+
+              <!-- Карточка "Анализы" -->
+              <a href="#" class="bg-white rounded-2xl p-6 group shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col justify-between h-40">
+                <div>
+                  <h3 class="text-xl font-semibold text-gray-800">Анализы</h3>
+                </div>
+                <div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white group-hover:bg-primary-hover transition-colors">
+                  <i class="fas fa-chevron-right"></i>
+                </div>
+              </a>
+
+              <!-- Карточка "Заболевания" -->
+              <a href="#" class="bg-white rounded-2xl p-6 group shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col justify-between h-40">
+                <div>
+                  <h3 class="text-xl font-semibold text-gray-800">Заболевания</h3>
+                </div>
+                <div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white group-hover:bg-primary-hover transition-colors">
+                  <i class="fas fa-chevron-right"></i>
+                </div>
+              </a>
+
+              <!-- Карточка "Симптомы" -->
+              <a href="#" class="bg-white rounded-2xl p-6 group shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col justify-between h-40">
+                <div>
+                  <h3 class="text-xl font-semibold text-gray-800">Симптомы</h3>
+                </div>
+                <div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white group-hover:bg-primary-hover transition-colors">
+                  <i class="fas fa-chevron-right"></i>
+                </div>
+              </a>
+            </div>
+
+            <!-- Правая колонка с картой -->
+            <div class="h-[530px] rounded-2xl bg-gray-200 overflow-hidden relative shadow-lg">
+              <!-- Заглушка для карты -->
+              <div class="absolute top-4 left-4">
+                <a href="#" class="bg-primary text-white font-semibold px-5 py-3 rounded-full hover:bg-primary-hover transition shadow-md flex items-center gap-2">
+                  Найти клинику <i class="fas fa-chevron-right"></i>
+                </a>
+              </div>
+              <iframe src="https://yandex.ru/map-widget/v1/?ll=59.805142%2C58.631504&mode=poi&poi%5Bpoint%5D=59.805308%2C58.631365&poi%5Buri%5D=ymapsbm1%3A%2F%2Forg%3Foid%3D192486594134&z=17" width="590" height="530" frameborder="1" allowfullscreen="true" ></iframe></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Пресс-центр -->
+      <section class="py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 class="text-3xl font-bold text-gray-800 mb-6">Пресс-центр</h2>
+          <!-- Tabs -->
+          <div class="flex gap-3 mb-8">
+            <button class="px-6 py-2 rounded-full bg-primary text-white font-semibold shadow-sm hover:bg-primary-hover transition">Новости</button>
+            <button class="px-6 py-2 rounded-full bg-primary/10 text-primary font-semibold shadow-sm hover:bg-primary-hover hover:text-white transition">Статьи</button>
+            <button class="px-6 py-2 rounded-full bg-primary/10 text-primary font-semibold shadow-sm hover:bg-primary-hover hover:text-white transition">СМИ</button>
+          </div>
+          <!-- Cards -->
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+            <!-- Card 1 -->
+            <div class="bg-white rounded-2xl shadow p-6 flex flex-col h-full">
+              <div class="flex items-center gap-4 mb-4">
+                <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="7 лет" class="w-20 h-20 rounded-xl object-cover">
+                <span class="ml-auto bg-gray-100 rounded-full px-4 py-2 text-sm text-gray-700 font-semibold">16.06.2025</span>
+              </div>
+              <h3 class="text-lg font-bold mb-2">Заголовок новости</h3>
+              <p class="text-gray-700 mb-6 text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, urna eu tincidunt consectetur, nisi nisl aliquam nunc, eget aliquam massa nisl quis neque.</p>
+              <a href="#" class="mt-auto inline-block px-6 py-2 rounded-full bg-primary/10 text-primary font-semibold hover:bg-primary hover:text-white transition">Подробнее</a>
+            </div>
+            <!-- Card 2 -->
+            <div class="bg-white rounded-2xl shadow p-6 flex flex-col h-full">
+              <div class="flex items-center gap-4 mb-4">
+                <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="20 лет" class="w-20 h-20 rounded-xl object-cover">
+                <span class="ml-auto bg-gray-100 rounded-full px-4 py-2 text-sm text-gray-700 font-semibold">06.06.2025</span>
+              </div>
+              <h3 class="text-lg font-bold mb-2">Заголовок новости</h3>
+              <p class="text-gray-700 mb-6 text-sm">Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+              <a href="#" class="mt-auto inline-block px-6 py-2 rounded-full bg-primary/10 text-primary font-semibold hover:bg-primary hover:text-white transition">Подробнее</a>
+            </div>
+            <!-- Card 3 -->
+            <div class="bg-white rounded-2xl shadow p-6 flex flex-col h-full">
+              <div class="flex items-center gap-4 mb-4">
+                <img src="https://cdn-icons-png.flaticon.com/512/3135/3135823.png" alt="Награды" class="w-20 h-20 rounded-xl object-cover">
+                <span class="ml-auto bg-gray-100 rounded-full px-4 py-2 text-sm text-gray-700 font-semibold">04.06.2025</span>
+              </div>
+              <h3 class="text-lg font-bold mb-2">Заголовок новости</h3>
+              <p class="text-gray-700 mb-6 text-sm">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.</p>
+              <a href="#" class="mt-auto inline-block px-6 py-2 rounded-full bg-primary/10 text-primary font-semibold hover:bg-primary hover:text-white transition">Подробнее</a>
+            </div>
+          </div>
+          <div class="flex justify-start">
+            <a href="#" class="inline-block px-8 py-3 rounded-full bg-primary/10 text-primary font-semibold hover:bg-primary hover:text-white transition">Смотреть все</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Футер -->
+    <footer class="bg-[#F9F9F6] border-t border-gray-200 mt-12">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 flex flex-col md:flex-row md:items-center md:justify-between gap-8">
+        <!-- Логотип и название -->
+        <div class="flex items-center gap-3">
+          <img src="src/img/logo.png" alt="Логотип" class="h-10 w-10 object-contain">
+          <span class="text-2xl font-semibold text-primary">МЦ Здоровье</span>
+        </div>
+        <!-- Навигация -->
+        <nav class="flex flex-wrap gap-6 text-gray-700 text-base font-medium">
+          <a href="/about/info/" class="hover:text-primary transition">О клинике</a>
+          <a href="/services/" class="hover:text-primary transition">Услуги</a>
+          <a href="/contacts/" class="hover:text-primary transition">Контакты</a>
+          <a href="/login/" class="hover:text-primary transition">Личный кабинет</a>
+        </nav>
+        <!-- Контакты -->
+        <div class="flex flex-col items-start gap-2">
+          <div class="flex items-center gap-2">
+            <i class="fas fa-phone text-primary"></i>
+            <span class="text-base font-medium text-gray-800">+7 (999) 123-45-67</span>
+          </div>
+          <div class="text-xs text-gray-500">Звонок по России бесплатный</div>
+        </div>
+      </div>
+      <div class="border-t border-gray-200 text-center py-4 text-sm text-gray-400">
+        © 2024 МЦ Здоровье. Все права защищены.
+      </div>
+    </footer>
+  </body>
+</html>
